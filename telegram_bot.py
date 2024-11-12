@@ -5,18 +5,18 @@ from time import *
 bot = telebot.TeleBot("7799596122:AAHvRyuachHNG6vubSArXNV0hnelLOKknEc")
 @bot.message_handler(commands = ["start"])
 def bot_buttons_setup(message):
-    buttonsArray = types.InlineKeyboardMarkup()
+    buttons_array = types.InlineKeyboardMarkup()
     button1 = types.InlineKeyboardButton(text = "Meme", callback_data = "a")
-    buttonsArray.add(button1)
+    buttons_array.add(button1)
     button2 = types.InlineKeyboardButton(text = "music", callback_data = "b")
-    buttonsArray.add(button2)
+    buttons_array.add(button2)
     button3 = types.InlineKeyboardButton(text = "flip a coin", callback_data = "c")
-    buttonsArray.add(button3)
+    buttons_array.add(button3)
     button4 = types.InlineKeyboardButton(text = "video link", callback_data = "d")
-    buttonsArray.add(button4)
+    buttons_array.add(button4)
     button5 = types.InlineKeyboardButton(text = "secret (A LOT OF ACTION)", callback_data = "e")
-    buttonsArray.add(button5)
-    bot.send_message(message.chat.id, "what do you want me to do?", reply_markup = buttonsArray)
+    buttons_array.add(button5)
+    bot.send_message(message.chat.id, "what do you want me to do?", reply_markup = buttons_array)
 @bot.callback_query_handler(func = lambda call: True)
 def button(call):
     if call.data == "a":
@@ -39,76 +39,76 @@ def button(call):
 def auto_responder_to_specific_text(message):
     bot.send_message(message.chat.id, "yeah")
 @bot.message_handler(commands = ["nospam"])
-def respondToSpecificMessage(message):
+def respond_to_specific_message(message):
     bot.send_message(message.chat.id, "ok")
-spamToggle = False
-randomPlayerNumber = randint(1,6)
-randomBotNumber = randint(1,6)
+spam_toggle = False
+random_player_number = randint(1,6)
+random_bot_number = randint(1,6)
 @bot.message_handler(content_types = ["text"])
 def text(message):
-    global spamToggle
+    global spam_toggle
     if message.text == "Hello" or message.text == "hello":
-        ButtonSetupUnderEntry = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        EntryButton1 = types.KeyboardButton(text = "Link to YouTube")
-        EntryButton2 = types.KeyboardButton(text = "GIF")
-        EntryButton3 = types.KeyboardButton(text = "Guess the number (NOT FINISHED)")
-        EntryButton4 = types.KeyboardButton(text = "spam11!!!!1!")
-        EntryButton5 = types.KeyboardButton(text = "Dice")
-        ButtonSetupUnderEntry.add(EntryButton1,EntryButton2,EntryButton3,EntryButton4,EntryButton5)
-        bot.send_message(message.chat.id, "Hi! Im your bot! How are you doing?", reply_markup = ButtonSetupUnderEntry)
+        button_setup_under_entry = types.ReplyKeyboardMarkup(resize_keyboard = True)
+        entry_button_1 = types.KeyboardButton(text = "Link to YouTube")
+        entry_button_2 = types.KeyboardButton(text = "GIF")
+        entry_button_3 = types.KeyboardButton(text = "Guess the number (NOT FINISHED)")
+        entry_button_4 = types.KeyboardButton(text = "spam11!!!!1!")
+        entry_button_5 = types.KeyboardButton(text = "Dice")
+        button_setup_under_entry.add(entry_button_1,entry_button_2,entry_button_3,entry_button_4,entry_button_5)
+        bot.send_message(message.chat.id, "Hi! Im your bot! How are you doing?", reply_markup = button_setup_under_entry)
     elif message.text == "spam11!!!!1!":
-        while spamToggle == False:
+        while spam_toggle == False:
             bot.send_message(message.chat.id,"You won a fre iFone 17 pro max ultra!!!11!11!")
             sleep(2)
     elif message.text == "Dice":
-        randomPlayerNumber = randint(1,6)
-        randomBotNumber = randint(1,6)
-        if randomPlayerNumber == 1:
+        random_player_number = randint(1,6)
+        random_bot_number = randint(1,6)
+        if random_player_number == 1:
             bot.send_message(message.chat.id," You got 1 dot!")
-        elif randomPlayerNumber == 2:
+        elif random_player_number == 2:
             bot.send_message(message.chat.id," You got 2 dots!")
-        elif randomPlayerNumber == 3:
+        elif random_player_number == 3:
             bot.send_message(message.chat.id," You got 3 dots!")
-        elif randomPlayerNumber == 4:
+        elif random_player_number == 4:
             bot.send_message(message.chat.id," You got 4 dots!")
-        elif randomPlayerNumber == 5:
+        elif random_player_number == 5:
             bot.send_message(message.chat.id," You got 5 dots!")
-        elif randomPlayerNumber == 6:
+        elif random_player_number == 6:
             bot.send_message(message.chat.id," You got 6 dots!")
-        if randomBotNumber == 1:
+        if random_bot_number == 1:
             bot.send_message(message.chat.id," I got 1 dot!")
-        elif randomBotNumber == 2:
+        elif random_bot_number == 2:
             bot.send_message(message.chat.id," I got 2 dots!")
-        elif randomBotNumber == 3:
+        elif random_bot_number == 3:
             bot.send_message(message.chat.id," I got 3 dots!")
-        elif randomBotNumber == 4:
+        elif random_bot_number == 4:
             bot.send_message(message.chat.id," I got 4 dots!")
-        elif randomBotNumber == 5:
+        elif random_bot_number == 5:
             bot.send_message(message.chat.id," I got 5 dots!")
-        elif randomBotNumber == 6:
+        elif random_bot_number == 6:
             bot.send_message(message.chat.id," I got 6 dots!")
-        if randomBotNumber == randomPlayerNumber:
+        if random_bot_number == random_player_number:
             bot.send_message(message.chat.id," It's a tie!")
-        if randomBotNumber > randomPlayerNumber:
+        if random_bot_number > random_player_number:
             bot.send_message(message.chat.id," I won!")
-        if randomBotNumber < randomPlayerNumber:
+        if random_bot_number < random_player_number:
             bot.send_message(message.chat.id," You won!")
     elif message.text == "Stop":
-        spamToggle = True
+        spam_toggle = True
         bot.send_message(message.chat.id, "Stopped!")
     elif message.text == "Link to YouTube":
         bot.send_message(message.chat.id,"https://www.youtube.com/")
     elif message.text == "GIF":
         bot.send_document(message.chat.id, open("cat-shocked.gif","rb"))
     elif message.text == "Guess the number":
-        global randomGuessNumber
-        randomGuessNumber = randint(1,10)
+        global random_guess_number
+        random_guess_number = randint(1,10)
         bot.send_message(message.chat.id, "Enter a number from 1 to 10")
         sleep(10)
-        if message.text == randomGuessNumber:
-            bot.send_message(message.chat.id, "Great! You guessed it! The number was " + str(randomGuessNumber))
+        if message.text == random_guess_number:
+            bot.send_message(message.chat.id, "Great! You guessed it! The number was " + str(random_guess_number))
         else:
-            bot.send_message(message.chat.id, "You didn't guess it right. Shame! The number was " + str(randomGuessNumber))
+            bot.send_message(message.chat.id, "You didn't guess it right. Shame! The number was " + str(random_guess_number))
     elif message.text == "Good" or message.text == "good":
         bot.send_message(message.chat.id, "Great! What are you doing at the moment?")
     elif message.text == "Coding" or message.text == "coding":
@@ -122,7 +122,7 @@ def text(message):
     else:
         bot.send_message(message.chat.id, "Sorry, didn't catch that! Can you repeat please?")
 @bot.message_handler(content_types = ["photo"])
-def PhotoRespond(message):
+def photo_respond(message):
     bot.send_message(message.chat.id, "brhu, im blind!111!!1!!!")
 
 bot.polling()

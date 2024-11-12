@@ -87,16 +87,16 @@ def text(message):
             bot.send_message(message.chat.id," I got 5 dots!")
         elif randomBotNumber == 6:
             bot.send_message(message.chat.id," I got 6 dots!")
-        if randomBotNumber == igrok:
+        if randomBotNumber == randomPlayerNumber:
             bot.send_message(message.chat.id," It's a tie!")
-        if randomBotNumber > igrok:
+        if randomBotNumber > randomPlayerNumber:
             bot.send_message(message.chat.id," I won!")
-        if randomBotNumber < igrok:
+        if randomBotNumber < randomPlayerNumber:
             bot.send_message(message.chat.id," You won!")
     elif message.text == "Stop":
         spamToggle = True
         bot.send_message(message.chat.id, "Stopped!")
-    elif message.text == "Link to Youtube":
+    elif message.text == "Link to YouTube":
         bot.send_message(message.chat.id,"https://www.youtube.com/")
     elif message.text == "GIF":
         bot.send_document(message.chat.id, open("cat-shocked.gif","rb"))

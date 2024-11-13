@@ -96,7 +96,7 @@ def text(message):
     elif message.text == "Stop":
         spam_toggle = True
         bot.send_message(message.chat.id, "Stopped!")
-    elif message.text == "Link to Youtube":
+    elif message.text == "Link to YouTube":
         bot.send_message(message.chat.id,"https://www.youtube.com/")
     elif message.text == "GIF":
         bot.send_document(message.chat.id, open("cat-shocked.gif","rb"))

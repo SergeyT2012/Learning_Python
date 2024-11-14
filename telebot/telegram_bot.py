@@ -51,7 +51,7 @@ def text(message):
         button_setup_under_entry = types.ReplyKeyboardMarkup(resize_keyboard = True)
         entry_button_1 = types.KeyboardButton(text = "Link to YouTube")
         entry_button_2 = types.KeyboardButton(text = "GIF")
-        entry_button_3 = types.KeyboardButton(text = "Guess the number (NOT FINISHED)")
+        entry_button_3 = types.KeyboardButton(text = "Guess the number")
         entry_button_4 = types.KeyboardButton(text = "spam11!!!!1!")
         entry_button_5 = types.KeyboardButton(text = "Dice")
         button_setup_under_entry.add(entry_button_1,entry_button_2,entry_button_3,entry_button_4,entry_button_5)
@@ -104,13 +104,15 @@ def text(message):
         global random_guess_number
         random_guess_number = randint(1,10)
         bot.send_message(message.chat.id, "Enter a number from 1 to 10")
-        sleep(10)
+        sleep(5)
         if message.text == random_guess_number:
             bot.send_message(message.chat.id, "Great! You guessed it! The number was " + str(random_guess_number))
         else:
             bot.send_message(message.chat.id, "You didn't guess it right. Shame! The number was " + str(random_guess_number))
     elif message.text == "Good" or message.text == "good":
         bot.send_message(message.chat.id, "Great! What are you doing at the moment?")
+    elif message.text == "1" or message.text == "2" or message.text == "3" or message.text == "4" or message.text == "5" or message.text == "6" or message.text == "7" or message.text == "8" or message.text == "9" or message.text == "10":
+        bot.send_message(message.chat.id, "...")
     elif message.text == "Coding" or message.text == "coding":
         bot.send_message(message.chat.id, "What are you coding?")
     elif message.text == "You" or message.text == "you":

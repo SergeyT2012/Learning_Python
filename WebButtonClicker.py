@@ -15,6 +15,7 @@ sleep(3)
 
 
 lst = browser.find_elements(By.CLASS_NAME, "AB7Lab.Id5V1")
+# Using XPATH to take future instances of text areas into account
 textarea_elements = browser.find_elements(By.XPATH, "//*[@data-initial-dir='auto']")
 dct_elements = {'first block' : lst[0:3], 'second block' : lst[3:8], 'third block' : lst[8:12], 'fourth block' : lst[12:14], 'fifth block' : lst[14:22], 'sixth block' : lst[22:]}
 

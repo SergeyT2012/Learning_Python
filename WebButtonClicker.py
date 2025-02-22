@@ -11,15 +11,12 @@ url = "https://docs.google.com/forms/d/e/1FAIpQLSc8fbNlSy8Ov2fDka0fAJZzPpUGkEVH1
 browser = webdriver.Firefox()
 browser.get(url)
 
-sleep(3)
-
+sleep(2)
 
 lst = browser.find_elements(By.CLASS_NAME, "AB7Lab.Id5V1")
 # Using XPATH to take future instances of text areas into account
 textarea_elements = browser.find_elements(By.XPATH, "//*[@data-initial-dir='auto']")
 dct_elements = {'first block' : lst[0:3], 'second block' : lst[3:8], 'third block' : lst[8:12], 'fourth block' : lst[12:14], 'fifth block' : lst[14:22], 'sixth block' : lst[22:]}
-
-print(textarea_elements)
 
 def random_func_radiobuttons():
     for i in dct_elements.keys():
@@ -34,6 +31,7 @@ def random_func_text_areas():
 random_func_radiobuttons()
 random_func_text_areas()
 
+browser.find_element(By.CLASS_NAME, "NPEfkd.RveJvd.snByac").click()
 
 sleep(10)
 browser.close()
